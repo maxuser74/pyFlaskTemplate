@@ -37,7 +37,7 @@ def index():
                 return jsonify({'svg': img2, 'value1': '2'})
             else:
                 which = not which
-                return jsonify({'svg': img1, 'value1': '2'})
+                return jsonify({'svg': img1, 'value1': '1'})
 
     return render_template('index.html')
 
