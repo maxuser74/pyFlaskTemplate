@@ -6,6 +6,8 @@ $(document).ready(function(){
         contentType: 'application/json',
         success: function(result){
             console.log(result)
+            document.getElementById('svg_placeholder').innerHTML = result['svg'];
+
             }
     })
 
