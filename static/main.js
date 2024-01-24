@@ -7,7 +7,6 @@ $(document).ready(function(){
         success: function(result){
             console.log(result)
             document.getElementById('svg_placeholder').innerHTML = result['svg'];
-
             }
     })
 
@@ -17,7 +16,13 @@ $(document).ready(function(){
     $.ajax({url: '',
     type:'post',
     contentType: 'application/json',
-    data: JSON.stringify({'variable2':'Clicked'})
+    data: JSON.stringify({'variable2':'Clicked'}),
+    success:function(result){
+        console.log(result)
+        document.getElementById('svg_placeholder').innerHTML = result['svg'];
+
+
+    }
     })
   })
 

@@ -18,12 +18,13 @@ with open('2.svg', 'r') as file:
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    global which
     if request.is_json:
         # Request is a JSON Object
         if request.method == "GET":
             # GET = send data to DOM client
             variable1 = "value_1"
-            return jsonify({'svg': img1})
+            return jsonify({'svg': img1,'value1':'1'})
 
         if request.method == 'POST':
             # POST = receive data from DOM client
@@ -31,6 +32,12 @@ def index():
 
             variable2 = json.loads(request.data)
             print(variable2)
+            if which:
+                which = not which
+                return jsonify({'svg': img2, 'value1': '2'})
+            else:
+                which = not which
+                return jsonify({'svg': img1, 'value1': '2'})
 
     return render_template('index.html')
 
