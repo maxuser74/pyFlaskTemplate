@@ -19,13 +19,14 @@ with open('2.svg', 'r') as file:
 def index():
     if request.is_json:
         if request.method == "GET":
-            #GET = send data to DOM client
+            # GET = send data to DOM client
             variable1 = "value_1"
             return jsonify({'variable': variable1})
 
         if request.method == 'POST':
+            # POST = receive data from DOM client
             print('POST')
-            #POST = receive data from DOM client
+
             variable2 = json.loads(request.data)
             print(variable2)
             return jsonify({'data': 'received'})
